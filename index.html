@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Confluence Scanner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1>Trading Confluence Scanner</h1>
+      <p class="subtitle">
+        M / Inverse M &amp; Head &amp; Shoulders pattern scanner with Weekly + Daily trend confluence
+      </p>
+    </header>
+
+    <section class="controls">
+      <div class="control-group">
+        <label for="refreshInterval">Refresh (seconds, min 3600 ≈ 1 hour)</label>
+        <input
+          type="number"
+          id="refreshInterval"
+          min="3600"
+          step="3600"
+          value="3600"
+        />
+      </div>
+      <button id="startBtn" class="primary">Start Scanner</button>
+      <button id="stopBtn" class="secondary" disabled>Stop</button>
+      <span id="status" class="status">Idle</span>
+    </section>
+
+    <main>
+      <section class="table-wrapper">
+        <table id="pairsTable">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Last</th>
+              <th>Signal</th>
+              <th>Pattern</th>
+              <th>Pattern window</th>
+              <th>Timeframe</th>
+              <th>Confluence (1D / 1W)</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Filled dynamically by app.js -->
+          </tbody>
+        </table>
+      </section>
+
+      <section class="log-section">
+        <h2>Live Signals Log</h2>
+        <ul id="signalLog"></ul>
+        <h2 class="history-title">History (from MongoDB)</h2>
+        <ul id="historyLog"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        Data comes from a free third‑party API. This tool is for educational purposes only and is not financial advice.
+      </small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
